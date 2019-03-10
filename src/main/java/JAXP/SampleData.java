@@ -1,24 +1,19 @@
-/*
+package JAXP;/*
 Wrapper for XML samples
  */
 
+import JAXP.Doc;
+
 public class SampleData {
 
-    public static String getXmlCatalog() {
-        return XML_CATALOG;
+    public static String getCatalog(Doc type) {
+        //if XML, return that, else return XSL
+        return type == Doc.XML ? XML_CATALOG : XSL_CATALOG;
     }
 
-    public static String getXslCatalog() {
-        return XSL_CATALOG;
-    }
-
-    public static String getXmlList() {
-        return XML_LIST;
-    }
-
-    public static String getXslList() {
-        return XSL_LIST;
-    }
+    public static String getList(Doc type) {
+        //if XML, return that, else return XSL
+        return type == Doc.XML ? XML_LIST : XSL_LIST;    }
 
     //hard code XSL
     private static final String XSL_CATALOG =
@@ -129,3 +124,4 @@ public class SampleData {
             "</items>"
             ;
 }
+
