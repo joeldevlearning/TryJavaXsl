@@ -2,18 +2,36 @@ package JAXP;/*
 Wrapper for XML samples
  */
 
-import JAXP.Doc;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import java.io.StringReader;
 
-public class SampleData {
+//TODO, identity possible errors
+//TODO add tests
+public class InMemoryData {
 
-    public static String getCatalog(Doc type) {
-        //if XML, return that, else return XSL
-        return type == Doc.XML ? XML_CATALOG : XSL_CATALOG;
+    public static Source getCatalogXsl() {
+        //Put XSL String into StreamSource
+        return new StreamSource(
+                new StringReader(XSL_CATALOG));
     }
 
-    public static String getList(Doc type) {
-        //if XML, return that, else return XSL
-        return type == Doc.XML ? XML_LIST : XSL_LIST;    }
+    public static Source getCatalogXml() {
+        //Put XSL String into StreamSource
+        return new StreamSource(
+                new StringReader(XML_CATALOG));
+    }
+
+    public static Source getListXsl() {
+        //Put XSL String into StreamSource
+        return new StreamSource(
+                new StringReader(XSL_LIST));
+    }
+    public static Source getListXml() {
+        //Put XSL String into StreamSource
+        return new StreamSource(
+                new StringReader(XML_LIST));
+    }
 
     //hard code XSL
     private static final String XSL_CATALOG =
